@@ -1,9 +1,7 @@
-import { useQuery } from '@tanstack/react-query';
 import {  useState } from 'react';
 import styled from 'styled-components'
 import average from '../../../utils/average';
 import sum from '../../../utils/sum';
-import { getCategories } from './api/categories';
 import Results from './components/Results'
 import Summary from './components/Summary';
 import useFetchCategories from './hooks/useFetchCategories';
@@ -48,12 +46,3 @@ const ResultSummary = () => {
 }
 
 export default ResultSummary
-
-/*
-  useEffect(() => {
-    const scores = categories.map((category) => category.score)
-    const sumOfScores = scores.reduce((previousScore, currentScore) => previousScore + currentScore, 0)
-    const score = Math.round(sumOfScores / scores.length)
-    setScore(score)
-  }, [categories])
-*/

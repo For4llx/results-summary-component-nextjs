@@ -13,29 +13,6 @@ const CategoryContainer = styled.article`
   border-radius: 12px;
 `
 
-const CategoryIconAndName = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-`
-
-const CategoryHeading = styled.h2`
-  font-size: ${props => props.theme.body};
-  font-weight: 500;
-`
-
-const CategoryEmphasis = styled.em`
-  font-size: ${props => props.theme.body};
-  color: ${props => props.theme.darkFrayBlue};
-  font-weight: bold;
-`
-
-const CategoryScore = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-`
-
 interface ISummaryCategory {
     category: ICategory
     color: string

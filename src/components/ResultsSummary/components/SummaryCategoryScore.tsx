@@ -21,9 +21,9 @@ interface ISummaryCategoryScore {
 
 const SummaryCategoryScore = ({ score }: ISummaryCategoryScore) => {
   return (
-      <ContainerCategoryScore>
+      <ContainerCategoryScore role={"categoryscore"}>
         <CategoryEmphasis>{score}</CategoryEmphasis>
-        <CategoryScoreMax>/ 100</CategoryScoreMax>
+        <CategoryScoreMax> / 100</CategoryScoreMax>
       </ContainerCategoryScore>
   )
 }
