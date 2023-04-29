@@ -1,7 +1,12 @@
-import { ICategory } from '@/interfaces';
+import { useQuery } from '@tanstack/react-query';
+import {  useState } from 'react';
 import styled from 'styled-components'
-import Results from './Results'
-import Summary from './Summary';
+import average from '../../../utils/average';
+import sum from '../../../utils/sum';
+import { getCategories } from './api/categories';
+import Results from './components/Results'
+import Summary from './components/Summary';
+import useFetchCategories from './hooks/useFetchCategories';
 
 const ResultSummaryContainer = styled.section`
   display: flex;
@@ -10,19 +15,45 @@ const ResultSummaryContainer = styled.section`
   box-shadow: 0px 30px 60px hsl(224, 82%, 58%, 15%);
 `;
 
-interface IResultsSummary {
-  categories: Array<ICategory>
-  score: number
-}
+const ResultSummary = () => {
+  const [score, setScore] = useState<number>(0)
+  const {
+    isLoadingCategories,
+    categories,
+    isErrorCategories,
+    isSuccessCategories
+  } = useFetchCategories()
 
-const ResultSummary = ({ categories, score }: IResultsSummary) => {
+  if(isLoadingCategories) {
+    return "Loading..."
+  }
 
-  return (
-    <ResultSummaryContainer>
-        <Results score={score} />
-        <Summary categories={categories} />
-    </ResultSummaryContainer>
-  )
+  if(isErrorCategories) {
+    return "Error"
+  }
+
+  if(isSuccessCategories) {
+    const quantityOfScore = categories.length
+    const scores = categories.map((category) => category.score)
+    const sumOfScores = sum(...scores)
+    const score = average(sumOfScores, quantityOfScore)
+
+    return (
+      <ResultSummaryContainer>
+          <Results score={score} />
+          <Summary categories={categories} />
+      </ResultSummaryContainer>
+    )
+  }
 }
 
 export default ResultSummary
+
+/*
+  useEffect(() => {
+    const scores = categories.map((category) => category.score)
+    const sumOfScores = scores.reduce((previousScore, currentScore) => previousScore + currentScore, 0)
+    const score = Math.round(sumOfScores / scores.length)
+    setScore(score)
+  }, [categories])
+*/
