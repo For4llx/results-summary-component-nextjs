@@ -18,7 +18,7 @@ interface ISummaryCategoryName {
 
 const SummaryCategoryName = ({ icon, category }: ISummaryCategoryName) => {
   return (
-      <ContainerCategoryName>
+      <ContainerCategoryName role={"categoryname"}>
         <img 
           src={icon}
           alt={category}
