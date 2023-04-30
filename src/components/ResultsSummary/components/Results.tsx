@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import ResultsScore from './ResultsScore';
 import ResultsContent from './ResultsContent';
 
-const ResultContainer = styled.div`
+const ResultsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +13,7 @@ const ResultContainer = styled.div`
   max-width: 368px;
 `;
 
-const ResultHeading = styled.h1`
+const ResultsHeading = styled.h1`
   color: ${props => props.theme.lightLavender};
   font-size: ${props => props.theme.m};
 `;
@@ -24,10 +24,10 @@ interface IResults {
 
 export default function Results({ score }: IResults) {
   return (
-    <ResultContainer>
-        <ResultHeading>Your Result</ResultHeading>
+    <ResultsContainer>
+        <ResultsHeading>Your Result</ResultsHeading>
         <ResultsScore score={score} />
         <ResultsContent />
-    </ResultContainer>
+    </ResultsContainer>
   )
 }

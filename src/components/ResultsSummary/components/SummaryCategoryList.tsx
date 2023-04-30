@@ -19,20 +19,19 @@ interface ICategoryList {
 
 const SummaryCategoryList = ({ categories }: ICategoryList) => {
     const categoryList = categories.map((category, index) => 
-        <CategoryItem key={index}>
-        <SummaryCategory
+        <CategoryItem role={"listitem"} key={index}>
+          <SummaryCategory
             category={category}
             color={
-            index % 4 === 0 ? "red" :
-                index % 4 === 1 ? "orange" :
-                index % 4 === 2 ? "green" :
-                    "blue"
-            }
-            />
+              index % 4 === 0 ? "red" :
+              index % 4 === 1 ? "orange" :
+              index % 4 === 2 ? "green" :
+              "blue"}
+          />
         </CategoryItem>)
 
   return (
-    <CategoryListContainer>
+    <CategoryListContainer role={"categorylist"}>
         {categoryList}
     </CategoryListContainer>
   )
