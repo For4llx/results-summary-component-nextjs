@@ -1,9 +1,24 @@
-import { render, screen } from '@testing-library/react'
-import {test, expect } from 'vitest'
+import { render, screen, cleanup } from '@testing-library/react'
+import { it, expect, describe, afterEach } from 'vitest'
 import SummaryCategoryScore from '../SummaryCategoryScore'
 
-test("should render", () => {
-    render(<SummaryCategoryScore score={76} />)
-    const container = screen.getByRole("categoryscore")
-    expect(container.textContent).toBe("76 / 100")
+describe("SummaryCategoryScore component", () => {
+    afterEach(() => {
+        cleanup();
+    });
+    it("should render the ContainerCategoryScore", () => {
+        render(<SummaryCategoryScore score={50} />)
+        const ContainerCategoryScore = screen.getByRole('categoryscore');
+        expect(ContainerCategoryScore).toBeDefined();
+    });
+    it("should render the CategoryScore", () => {
+        render(<SummaryCategoryScore score={50} />)
+        const CategoryScore = screen.getByText('50');
+        expect(CategoryScore).toBeDefined();
+    });
+    it("should render the CategoryScoreMax", () => {
+        render(<SummaryCategoryScore score={50} />)
+        const CategoryScoreMax = screen.getByText('/ 100');
+        expect(CategoryScoreMax).toBeDefined();
+    });
 })

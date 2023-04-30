@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const ScoreContainer = styled.div`
+const ResultsScoreContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,13 +11,13 @@ const ScoreContainer = styled.div`
   border-radius: 232px;
 `;
 
-const ScoreResult = styled.p`
+const ResultsScoreResult = styled.p`
   color: ${props => props.theme.white};
   font-size: ${props => props.theme.xl};
   font-weight: bold;
 `;
 
-const ScoreMax = styled.p`
+const ResultsScoreMax = styled.p`
   opacity: 50%;
   color: ${props => props.theme.lightLavender};
   font-size: ${props => props.theme.body};
@@ -30,10 +30,10 @@ interface IResultsScore {
 
 const ResultsScore = ({ score }: IResultsScore) => {
   return (
-    <ScoreContainer>
-        <ScoreResult>{score}</ScoreResult>
-        <ScoreMax>of 100</ScoreMax>
-    </ScoreContainer>
+    <ResultsScoreContainer role={"resultsscore"}>
+        <ResultsScoreResult>{score}</ResultsScoreResult>
+        <ResultsScoreMax>of 100</ResultsScoreMax>
+    </ResultsScoreContainer>
   )
 }
 

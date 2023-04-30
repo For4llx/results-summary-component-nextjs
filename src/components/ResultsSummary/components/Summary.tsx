@@ -37,7 +37,7 @@ interface ISummary {
 
 const Summary = ({ categories }: ISummary) => {
   return (
-        <SummaryContainer>
+        <SummaryContainer role={"summary"}>
             <SummaryHeading>Summary</SummaryHeading>
             <SummaryCategoryList categories={categories} />
             <SummaryButton>Continue</SummaryButton>

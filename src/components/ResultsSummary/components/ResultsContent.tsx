@@ -1,18 +1,18 @@
 import styled from 'styled-components'
 
-const ContentContainer = styled.div`
+const ResultsContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-const ContentHeading = styled.h1`
+const ResultsContentHeading = styled.h1`
   font-size: ${props => props.theme.l};
   color: ${props => props.theme.white};
   margin-bottom: 0.875rem;
 `;
 
-const ContentParagraph = styled.p`
+const ResultsContentParagraph = styled.p`
   font-size: ${props => props.theme.body};
   color: ${props => props.theme.lightLavender};
   text-align: center;
@@ -20,13 +20,13 @@ const ContentParagraph = styled.p`
 
 const ResultsContent = () => {
   return (
-    <ContentContainer>
-        <ContentHeading>Great</ContentHeading>
-        <ContentParagraph>
+    <ResultsContentContainer role={"resultscontent"}>
+        <ResultsContentHeading>Great</ResultsContentHeading>
+        <ResultsContentParagraph>
             Your performance exceed 65% of 
             the people conducting the test here!
-        </ContentParagraph>
-    </ContentContainer>
+        </ResultsContentParagraph>
+    </ResultsContentContainer>
   )
 }
 

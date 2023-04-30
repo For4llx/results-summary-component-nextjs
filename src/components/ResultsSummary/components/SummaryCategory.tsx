@@ -20,7 +20,7 @@ interface ISummaryCategory {
 
 const SummaryCategory = ({ category, color }: ISummaryCategory) => {
   return (
-    <CategoryContainer color={color}>
+    <CategoryContainer color={color} role={"category"}>
         <SummaryCategoryName 
             icon={category.icon}
             category={category.category}
