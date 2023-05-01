@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 import { ICategory } from '@/interfaces'
 import SummaryCategoryList from './SummaryCategoryList'
+import FadeIn from '@/components/animation/FadeIn'
 
 const SummaryContainer = styled.article`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 1.75rem;
   width: 368px;
   padding: 2.5rem;
@@ -16,6 +18,7 @@ const SummaryHeading = styled.h1`
 `
 
 const SummaryButton = styled.button`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,10 +27,22 @@ const SummaryButton = styled.button`
   padding: 1rem;
   border-radius: 128px;
   cursor: pointer;
+  width: 100%;
+  transition: all 400ms;
   &:hover {
+    &:after {
+      z-index: 1;
+    }
+  }
+  &:after {
+    content: "Continue";
+    position: absolute;
     font-weight: 800;
     background-image: linear-gradient(${props => props.theme.lightSlateBlue}, ${props => props.theme.lightRoyalBlue});
-
+    width: 100%;
+    height: 100%;
+    border-radius: 128px;
+    z-index: -1;
   }
 `
 
@@ -40,7 +55,13 @@ const Summary = ({ categories }: ISummary) => {
         <SummaryContainer role={"summary"}>
             <SummaryHeading>Summary</SummaryHeading>
             <SummaryCategoryList categories={categories} />
-            <SummaryButton>Continue</SummaryButton>
+            <FadeIn
+              animationDuration='400ms'
+              animationTimingFunction='ease-out'
+              animationDelay='6s'
+            >
+              <SummaryButton>Continue</SummaryButton>
+            </FadeIn>
         </SummaryContainer>
     )
 }

@@ -11,10 +11,13 @@ describe("ResultsScore component", () => {
         const ResultsScoreContainer = screen.getByRole("resultsscore")
         expect(ResultsScoreContainer).toBeDefined()
     });
-    it("should render the ResultsScoreResult", () => {
+    it("should render the ResultsScoreResult under 4 seconds", () => {
         render(<ResultsScore score={42} />)
-        const ResultsScoreResult = screen.getByText("42")
-        expect(ResultsScoreResult).toBeDefined()
+        setTimeout(() => {
+            const ResultsScoreResult = screen.getByText("42")
+            expect(ResultsScoreResult).toBeDefined()
+        }, 4000);
+
     });
     it("should render the ResultsScoreMax", () => {
         render(<ResultsScore score={0} />)

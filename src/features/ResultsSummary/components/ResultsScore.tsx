@@ -1,4 +1,7 @@
 import styled from 'styled-components'
+import FadeIn from '../../../components/animation/FadeIn';
+import CountUp from '../../../components/ui/CountUp';
+
 
 const ResultsScoreContainer = styled.div`
   display: flex;
@@ -31,8 +34,20 @@ interface IResultsScore {
 const ResultsScore = ({ score }: IResultsScore) => {
   return (
     <ResultsScoreContainer role={"resultsscore"}>
-        <ResultsScoreResult>{score}</ResultsScoreResult>
-        <ResultsScoreMax>of 100</ResultsScoreMax>
+      <FadeIn 
+        translateY={"2rem"}
+        animationDuration={"2s"}
+        animation-timing-function={"ease-out"}
+      >
+        <ResultsScoreResult>
+          <CountUp
+            start={0}
+            end={score}
+            duration={5} 
+          />
+        </ResultsScoreResult>
+      </FadeIn>
+      <ResultsScoreMax>of 100</ResultsScoreMax>
     </ResultsScoreContainer>
   )
 }
