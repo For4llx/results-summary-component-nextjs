@@ -24,7 +24,7 @@ interface IResults {
 
 export default function Results({ score }: IResults) {
   return (
-    <ResultsContainer>
+    <ResultsContainer role={"results"}>
         <ResultsHeading>Your Result</ResultsHeading>
         <ResultsScore score={score} />
         <ResultsContent />

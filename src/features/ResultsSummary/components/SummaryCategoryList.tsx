@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { ICategory } from '@/interfaces'
 import SummaryCategory from './SummaryCategory'
+import FadeIn from '@/components/animation/FadeIn'
 
 const CategoryListContainer = styled.ul`
   display: flex;
@@ -20,14 +21,20 @@ interface ICategoryList {
 const SummaryCategoryList = ({ categories }: ICategoryList) => {
     const categoryList = categories.map((category, index) => 
         <CategoryItem role={"listitem"} key={index}>
-          <SummaryCategory
-            category={category}
-            color={
-              index % 4 === 0 ? "red" :
-              index % 4 === 1 ? "orange" :
-              index % 4 === 2 ? "green" :
-              "blue"}
-          />
+          <FadeIn
+            translateX='2rem'
+            animationDelay='5s'
+            animationDuration={(400 * (index + 1)).toString() + "ms"}
+          >
+            <SummaryCategory
+              category={category}
+              color={
+                index % 4 === 0 ? "red" :
+                index % 4 === 1 ? "orange" :
+                index % 4 === 2 ? "green" :
+                "blue"}
+            />
+          </FadeIn>
         </CategoryItem>)
 
   return (

@@ -1,30 +1,7 @@
-import { ICategory } from '@/interfaces'
 import { render, screen, cleanup } from '@testing-library/react'
 import { it, expect, describe, afterEach } from 'vitest'
+import mockCategories from '../../../../../data/__mock__/categories'
 import SummaryCategory from '../SummaryCategory'
-
-const mockCategories: ICategory[] = [
-    {
-        "category": "Reaction",
-        "score": 80,
-        "icon": "./assets/images/icon-reaction.svg"
-    },
-    {
-        "category": "Memory",
-        "score": 92,
-        "icon": "./assets/images/icon-memory.svg"
-    },
-    {
-        "category": "Verbal",
-        "score": 61,
-        "icon": "./assets/images/icon-verbal.svg"
-    },
-    {
-        "category": "Visual",
-        "score": 72,
-        "icon": "./assets/images/icon-visual.svg"
-    }
-]
 
 describe("SummaryCategory component", () => {
     afterEach(() => {

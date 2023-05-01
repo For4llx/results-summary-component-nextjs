@@ -3,15 +3,8 @@ import styled from 'styled-components'
 import { ThemeProvider } from 'styled-components'
 import { theme } from '../../styles/Theme'
 import { GlobalStyles } from '../../styles/Global'
-import ResultSummary from '@/components/ResultsSummary'
+import ResultSummary from '@/features/ResultsSummary'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-
-const ResultSummaryContainer = styled.section`
-  display: flex;
-  background-color: ${props => props.theme.white};
-  border-radius: 32px;
-  box-shadow: 0px 30px 60px hsl(224, 82%, 58%, 15%);
-`;
 
 export default function Home() {
   const queryClient = new QueryClient()
@@ -26,9 +19,7 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main>
-          <ResultSummaryContainer>
-            <ResultSummary />
-          </ResultSummaryContainer>
+          <ResultSummary />
         </main>
       </ThemeProvider>
     </QueryClientProvider>

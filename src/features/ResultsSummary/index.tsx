@@ -1,3 +1,4 @@
+import FadeIn from '@/components/animation/FadeIn';
 import {  useState } from 'react';
 import styled from 'styled-components'
 import average from '../../../utils/average';
@@ -37,10 +38,15 @@ const ResultSummary = () => {
     const score = average(sumOfScores, quantityOfScore)
 
     return (
-      <ResultSummaryContainer>
-          <Results score={score} />
-          <Summary categories={categories} />
-      </ResultSummaryContainer>
+      <FadeIn
+        translateY='2rem'
+        animationDuration='1s'
+      >
+        <ResultSummaryContainer>
+            <Results score={score} />
+            <Summary categories={categories} />
+        </ResultSummaryContainer>
+      </FadeIn>
     )
   }
 }
