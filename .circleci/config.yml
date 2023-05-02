@@ -11,9 +11,9 @@ jobs:
       - run:
           name: install requirements
           command: |
-          npm install;
-          npm install node-fetch;
-          npm install @types/node-fetch --save-dev;
+            npm install;
+            npm install node-fetch;
+            npm install @types/node-fetch --save-dev;
       - run:
           name: vitest
           command: npm run test
