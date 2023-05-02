@@ -24,10 +24,10 @@ jobs:
           command: echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
       - run:
           name: build docker image
-          command: docker build -t nobimeromeo/results-summary-components:$CIRCLE_SHA1 .
+          command: docker build -t nobimeromeo/results-components:$CIRCLE_SHA1 .
       - run:
           name: push docker image
-          command: docker push nobimeromeo/results-summary-components:$CIRCLE_SHA1
+          command: docker push nobimeromeo/results-components:$CIRCLE_SHA1
   deploy_to_heroku:
     machine: true
     steps:
@@ -37,8 +37,8 @@ jobs:
           command: |
             sudo curl https://cli-assets.heroku.com/install.sh | sh
             HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:login
-            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:push -a romeonobime-results-component web
-            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:release -a romeonobime-results-component web
+            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:push -a results-components web
+            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:release -a results-components web
 
 workflows:
   version: 2.1
