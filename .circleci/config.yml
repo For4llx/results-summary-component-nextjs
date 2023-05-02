@@ -13,12 +13,10 @@ jobs:
           command: npm install
       - run:
           name: vitest
-          command:
-            [
-              npm run test,
-              npm install node-fetch,
-              npm install @types/node-fetch --save-dev,
-            ]
+          command: |
+            npm run test;
+            npm install node-fetch;
+            npm install @types/node-fetch --save-dev;
   push_to_docker_hub:
     machine:
       image: ubuntu-2204:2022.04.2
