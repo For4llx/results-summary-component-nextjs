@@ -1,5 +1,6 @@
 import { test, expect, vi, afterEach } from 'vitest'
 import { getCategories } from '../categories'
+import fetch from 'node-fetch'
 
 const mockCategories = [
   {
