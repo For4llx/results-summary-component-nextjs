@@ -33,11 +33,13 @@ const SummaryButton = styled.button`
   font-weight: 800;
   width: 100%;
   z-index: 1;
+
   &:hover {
-    &::after {
+    &:after {
       opacity: 1;
     }
   }
+
   &:after {
     content: '';
     transition: opacity 400ms;

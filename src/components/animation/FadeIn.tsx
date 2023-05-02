@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { keyframes } from 'styled-components'
 
-const fadeIn = (translateX, translateY) => keyframes`
+const fadeIn = (translateX: string, translateY: string) => keyframes`
     from
     {
         transform: translateY(${translateY});
@@ -30,7 +30,8 @@ interface FadeIn {
 
 const FadeIn = styled.div<FadeIn>`
   opacity: 0;
-  animation-name: ${(props) => fadeIn(props.translateX, props.translateY)};
+  animation-name: ${(props) =>
+    fadeIn(props.translateX || '0', props.translateY || '0')};
   animation-duration: ${(props) => props.animationDuration};
   animation-timing-function: ${(props) => props.animationTimingFunction};
   animation-delay: ${(props) => props.animationDelay};

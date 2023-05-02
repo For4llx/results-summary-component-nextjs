@@ -27,14 +27,14 @@ const ResultSummary = () => {
   } = useFetchCategories()
 
   if (isLoadingCategories) {
-    return 'Loading...'
+    return <div>Loading...</div>
   }
 
   if (isErrorCategories) {
-    return 'Error'
+    return <div>Error</div>
   }
 
-  if (isSuccessCategories) {
+  if (isSuccessCategories && categories) {
     const quantityOfScore = categories.length
     const scores = categories.map((category) => category.score)
     const sumOfScores = sum(...scores)
@@ -49,6 +49,7 @@ const ResultSummary = () => {
       </FadeIn>
     )
   }
+  return <div>Something expected happened</div>
 }
 
 export default ResultSummary
