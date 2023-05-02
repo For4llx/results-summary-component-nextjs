@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import styled from 'styled-components'
 import { ThemeProvider } from 'styled-components'
 import { theme } from '../../styles/Theme'
 import { GlobalStyles } from '../../styles/Global'

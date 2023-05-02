@@ -7,24 +7,23 @@ const ContainerCategoryName = styled.div`
 `
 
 const CategoryNameHeading = styled.h2`
-  font-size: ${props => props.theme.body};
+  font-size: ${(props) => props.theme.body};
   font-weight: 500;
 `
 
+const Image = styled.img``
+
 interface ISummaryCategoryName {
-    category: string
-    icon: string
+  category: string
+  icon: string
 }
 
 const SummaryCategoryName = ({ icon, category }: ISummaryCategoryName) => {
   return (
-      <ContainerCategoryName role={"categoryname"}>
-        <img 
-          src={icon}
-          alt={category}
-        />
-        <CategoryNameHeading>{category}</CategoryNameHeading>
-      </ContainerCategoryName>
+    <ContainerCategoryName role={'categoryname'}>
+      <Image src={icon} alt={category} />
+      <CategoryNameHeading>{category}</CategoryNameHeading>
+    </ContainerCategoryName>
   )
 }
 
