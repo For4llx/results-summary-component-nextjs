@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { ICategory } from '@/interfaces'
 import SummaryCategoryList from './SummaryCategoryList'
-import FadeIn from '@/components/animation/FadeIn'
+import FadeIn from '../../../components/animation/FadeIn';
 
 const SummaryContainer = styled.article`
   display: flex;
@@ -27,21 +27,29 @@ const SummaryButton = styled.button`
   padding: 1rem;
   border-radius: 128px;
   cursor: pointer;
+  font-weight: 800;
   width: 100%;
-  transition: all 400ms;
-  &:hover {
-    &:after {
-      z-index: 1;
+  z-index: 1;
+  &:hover
+    {
+      &::after
+      {
+          opacity: 1;
+      }
     }
-  }
   &:after {
-    content: "Continue";
+    content: "";
+    transition: opacity 400ms;
     position: absolute;
-    font-weight: 800;
+    top: 0;
+    right: 0;
+    bottom: 0;  
+    left: 0;
     background-image: linear-gradient(${props => props.theme.lightSlateBlue}, ${props => props.theme.lightRoyalBlue});
     width: 100%;
     height: 100%;
     border-radius: 128px;
+    opacity: 0;
     z-index: -1;
   }
 `

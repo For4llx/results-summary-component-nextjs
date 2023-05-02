@@ -18,6 +18,10 @@ const ResultsScoreResult = styled.p`
   color: ${props => props.theme.white};
   font-size: ${props => props.theme.xl};
   font-weight: bold;
+  transition: 400ms;
+  &:hover {
+    transform: scale(1.15);
+  }
 `;
 
 const ResultsScoreMax = styled.p`

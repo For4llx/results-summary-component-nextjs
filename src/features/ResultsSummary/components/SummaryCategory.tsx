@@ -11,6 +11,10 @@ const CategoryContainer = styled.article`
   background-color: ${props => props.color === "red" ? "hsl(0, 100%, 67%, 5%)" : props.color === "orange" ? "hsl(39, 100%, 56%, 5%)" : props.color === "green" ? "hsl(166, 100%, 37%, 5%)" : props.color === "blue" ? "hsl(234, 85%, 45%, 5%)" : null};
   color: ${props => props.color === "red" ? props.theme.lightRed : props.color === "orange" ? props.theme.orangeyYellow : props.color === "green" ? props.theme.greenTeal : props.color === "blue" ? props.theme.cobaltBlue : null};
   border-radius: 12px;
+  transition: 400ms;
+  &:hover {
+    transform: scale(1.15);
+  }
 `
 
 interface ISummaryCategory {

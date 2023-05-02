@@ -12,6 +12,9 @@ const ResultSummaryContainer = styled.section`
   background-color: ${props => props.theme.white};
   border-radius: 32px;
   box-shadow: 0px 30px 60px hsl(224, 82%, 58%, 15%);
+  @media screen and (max-width: 640px) {
+    flex-direction: column;
+  }
 `;
 
 const ResultSummary = () => {

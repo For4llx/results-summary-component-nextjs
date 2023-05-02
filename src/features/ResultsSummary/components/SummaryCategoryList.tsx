@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { ICategory } from '@/interfaces'
 import SummaryCategory from './SummaryCategory'
-import FadeIn from '@/components/animation/FadeIn'
+import FadeIn from '../../../components/animation/FadeIn';
 
 const CategoryListContainer = styled.ul`
   display: flex;

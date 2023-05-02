@@ -1,5 +1,5 @@
-import FadeIn from '@/components/animation/FadeIn';
 import styled from 'styled-components'
+import FadeIn from '../../../components/animation/FadeIn';
 
 const ResultsContentContainer = styled.div`
   display: flex;
