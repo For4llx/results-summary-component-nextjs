@@ -5,7 +5,6 @@ WORKDIR /app
 COPY . .
 
 RUN npm install --production
-COPY --from=dependencies /app/node_modules ./node_modules
 
 RUN npm run build
 
