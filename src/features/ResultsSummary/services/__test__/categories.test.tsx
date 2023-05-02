@@ -1,41 +1,41 @@
 import { test, expect, vi, afterEach } from 'vitest'
+import mockCategories from '../../../../../data/__mock__/categories'
 import { getCategories } from '../categories'
-import fetch from 'node-fetch'
-
-const mockCategories = [
-  {
-    id: 1,
-    category: 'Reaction',
-    score: 80,
-    icon: './assets/images/icon-reaction.svg',
-  },
-  {
-    id: 2,
-    category: 'Memory',
-    score: 92,
-    icon: './assets/images/icon-memory.svg',
-  },
-  {
-    id: 3,
-    category: 'Verbal',
-    score: 61,
-    icon: './assets/images/icon-verbal.svg',
-  },
-  {
-    id: 4,
-    category: 'Visual',
-    score: 72,
-    icon: './assets/images/icon-visual.svg',
-  },
-]
 
 test('should call fetch with the correct URL', async () => {
   afterEach(() => {
     vi.restoreAllMocks()
   })
-  //@ts-ignore
+
   vi.spyOn(global, 'fetch').mockResolvedValueOnce({
     json: vi.fn().mockResolvedValueOnce(mockCategories),
+    headers: new Headers({
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache',
+    }),
+    ok: false,
+    redirected: false,
+    status: 0,
+    statusText: '',
+    type: 'basic',
+    url: '',
+    clone: function (): Response {
+      throw new Error('Function not implemented.')
+    },
+    body: null,
+    bodyUsed: false,
+    arrayBuffer: function (): Promise<ArrayBuffer> {
+      throw new Error('Function not implemented.')
+    },
+    blob: function (): Promise<Blob> {
+      throw new Error('Function not implemented.')
+    },
+    formData: function (): Promise<FormData> {
+      throw new Error('Function not implemented.')
+    },
+    text: function (): Promise<string> {
+      throw new Error('Function not implemented.')
+    },
   })
 
   const categories = await getCategories()
