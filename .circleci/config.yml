@@ -10,7 +10,7 @@ jobs:
       - checkout
       - run:
           name: install requirements
-          command: 
+          command: |
           npm install;
           npm install node-fetch;
           npm install @types/node-fetch --save-dev;
