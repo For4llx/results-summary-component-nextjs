@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { keyframes } from "styled-components";
+import styled from 'styled-components'
+import { keyframes } from 'styled-components'
 
 const fadeIn = (translateX, translateY) => keyframes`
     from
@@ -16,27 +16,27 @@ const fadeIn = (translateX, translateY) => keyframes`
 `
 
 interface FadeIn {
-    animationName?: string;
-    animationDuration?: string;
-    animationTimingFunction?: string
-    animationDelay?: string;
-    animationIterationCount?: string;
-    animationDirection?: string;
-    animationFillMode?: string;
-    animationPlayState?: string;
-    translateX?: string;
-    translateY?: string;
-  }
+  animationName?: string
+  animationDuration?: string
+  animationTimingFunction?: string
+  animationDelay?: string
+  animationIterationCount?: string
+  animationDirection?: string
+  animationFillMode?: string
+  animationPlayState?: string
+  translateX?: string
+  translateY?: string
+}
 
 const FadeIn = styled.div<FadeIn>`
-    opacity: 0;
-    animation-name: ${props => fadeIn(props.translateX, props.translateY)};
-    animation-duration: ${props => props.animationDuration};
-    animation-timing-function: ${props => props.animationTimingFunction};
-    animation-delay: ${props => props.animationDelay};
-    animation-iteration-count: ${props => props.animationIterationCount};
-    animation-direction: ${props => props.animationDirection};
-    animation-fill-mode: forwards;
+  opacity: 0;
+  animation-name: ${(props) => fadeIn(props.translateX, props.translateY)};
+  animation-duration: ${(props) => props.animationDuration};
+  animation-timing-function: ${(props) => props.animationTimingFunction};
+  animation-delay: ${(props) => props.animationDelay};
+  animation-iteration-count: ${(props) => props.animationIterationCount};
+  animation-direction: ${(props) => props.animationDirection};
+  animation-fill-mode: forwards;
 `
 
 export default FadeIn
