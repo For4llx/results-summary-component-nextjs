@@ -13,7 +13,12 @@ jobs:
           command: npm install
       - run:
           name: vitest
-          command: npm run test
+          command:
+            [
+              npm run test,
+              npm install node-fetch,
+              npm install @types/node-fetch --save-dev,
+            ]
   push_to_docker_hub:
     machine:
       image: ubuntu-2204:2022.04.2
@@ -37,8 +42,8 @@ jobs:
           command: |
             sudo curl https://cli-assets.heroku.com/install.sh | sh
             HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:login
-            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:push -a results-summary-components web
-            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:release -a results-summary-components web
+            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:push -a romeonobime-results-component web
+            HEROKU_API_KEY=${HEROKU_API_KEY} heroku container:release -a romeonobime-results-component web
 
 workflows:
   version: 2.1
